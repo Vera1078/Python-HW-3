@@ -4,20 +4,20 @@
 
 # - [2, 3, 5, 9, 3] -> на нечётных позициях элементы 3 и 9, ответ: 12
 
-# print('Задача 1. Сумма элементов нечетных позиций')
-# print('Введите числа через пробел')
-# list1 = list (map(int, input().split()))
+print('Задача 1. Сумма элементов нечетных позиций')
+print('Введите числа через пробел')
+list1 = list (map(int, input().split()))
 
-# sum_elements = 0
+sum_elements = 0
 
-# for i in range(1, len(list1), 2):
-#     sum_elements += list1[i]
+for i in range(1, len(list1), 2):
+    sum_elements += list1[i]
     
-# print('Сумма элементов нечетных позиций = ', end='')
-# print(f'{sum_elements}') 
+print('Сумма элементов нечетных позиций = ', end='')
+print(f'{sum_elements}') 
 
-# print()
-# print()   
+print()
+print()   
 
 # Напишите программу, которая найдёт произведение пар чисел списка. 
 # Парой считаем первый и последний элемент, второй и предпоследний и т.д.
@@ -26,24 +26,24 @@
 # - [2, 3, 4, 5, 6] => [12, 15, 16];
 # - [2, 3, 5, 6] => [12, 15]
 
-# print('Задача 2. Произведение пар чисел списка')
-# from random import randint
+print('Задача 2. Произведение пар чисел списка')
+from random import randint
 
-# number = int(input('Введите размер списка '))
-# list1 = []
-# list2 = []
+number = int(input('Введите размер списка: '))
+list1 = []
+list2 = []
 
-# for i in range(number):
-#     list1.append(randint(0, 9))
+for i in range(number):
+    list1.append(randint(0, 9))
 
-# for j in range((len(list1) + 1) // 2):
-#     list2.append(list1[j] * list1[-(j + 1)])
+for j in range((len(list1) + 1) // 2):
+    list2.append(list1[j] * list1[-(j + 1)])
         
-# print(f'Исходный список {list1}')
-# print(f'Произведение пар чисел списка {list2}')
+print(f'Исходный список {list1}')
+print(f'Произведение пар чисел списка {list2}')
 
-# print()
-# print()
+print()
+print()
 
 # Задайте список из вещественных чисел. Напишите программу, 
 # которая найдёт разницу между максимальным и минимальным значением дробной части элементов.
@@ -51,20 +51,20 @@
 
 # - [1.1, 1.2, 3.1, 5, 10.01] => 0.19
 
-# print('Задача 3. Разница между max и min значением дробной части элементов.')
-# from random import uniform
+print('Задача 3. Разница между max и min значением дробной части элементов.')
+from random import uniform
 
-# n = int(input('Введите размер списка '))
-# list1 = []
-# for i in range(n):
-#     f = uniform(0, 9)
-#     list1.append(round(f, 2))
+n = int(input('Введите размер списка: '))
+list1 = []
+for i in range(n):
+    f = uniform(0, 9)
+    list1.append(round(f, 2))
 
-# new_lst = [round(i%1, 2) for i in list1]
-# print(list1, '=>', max(new_lst) - min(new_lst))
+new_lst = [round(i%1, 2) for i in list1]
+print(list1, '=>', max(new_lst) - min(new_lst))
 
-# print()
-# print()
+print()
+print()
 
 # Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 # Пример:
@@ -74,12 +74,15 @@
 # - 2 -> 10
 
 print('Задача 4. Преобразование десятичного числа в двоичное.')
-a = int(input('Введите число '))
+a = int(input('Введите число: '))
 b = ''
 while a > 0:
     b = str(a%2) + b
     a = a // 2
 print(b)
+
+print()
+print()
 
 # Задайте число. Составьте список чисел Фибоначчи, 
 # в том числе для отрицательных индексов.
@@ -88,3 +91,17 @@ print(b)
 # - для k = 8 список будет выглядеть так: 
 # [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] 
 
+print('Задача 5. Список чисел Фибоначчи.')
+n = int(input('Введите размер числа Фибоначчи: '))
+if n < 0: n = n*-1
+f1 = f2 = 1
+list1 = [f1, f2]
+for i in range(2, n):
+    f1,f2 = f2, f1 + f2
+    list1.append(f2)
+
+f1=f2=1
+for i in range(-n, 1):
+    f1,f2 = f2, f1 - f2
+    list1.insert(0, f2)
+print(list1)
